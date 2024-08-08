@@ -1,19 +1,19 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-05 09:21:45
- * @LastEditTime : 2024-08-05 16:35:43
+ * @LastEditTime : 2024-08-05 17:21:57
  * @LastEditors  : zuohy
  * @Description  : 左边菜单栏
 -->
 <template>
-    <div class="bg-slate-800 h-screen text-white">
+    <div class="bg-slate-800 h-screen text-white menu-container transition-all" :style="{ width: menuStore.menuWidth }">
         <!-- 顶部 Logo, 指定高度为 64px, 和右边的 Header 头保持一样高 -->
         <div class="flex items-center justify-center h-[64px]">
             Logo
         </div>
 
       <!-- 下方菜单 -->
-      <el-menu :default-active="defaultActive" @select="handleSelect">
+      <el-menu :default-active="defaultActive" @select="handleSelect" :collapse="isCollapse" :collapse-transition="false">
             <template v-for="(item, index) in menus" :key="index">
                 <el-menu-item :index="item.path">
                     <el-icon>
@@ -27,13 +27,17 @@
 </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router"
+import { useMenuStore } from '@/stores/menu'
 
 const route = useRoute();
 const router = useRouter()
+const menuStore = useMenuStore()
 
-
+ // 是否折叠
+ const isCollapse = computed(() =>  !(menuStore.menuWidth == '250px'))
+            
 //根据路由地址判断哪个菜单被选中
 const defaultActive = ref(route.path);
 

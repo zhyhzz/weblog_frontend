@@ -14,6 +14,7 @@ import App from './App.vue'
 
 const app = createApp(App)
 
+const pinia = createPinia()
 // 引入图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
@@ -21,5 +22,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 
 app.use(router)
-
+app.use(pinia)
 app.mount('#app')

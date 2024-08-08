@@ -1,7 +1,7 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-05 09:16:17
- * @LastEditTime : 2024-08-05 16:05:56
+ * @LastEditTime : 2024-08-08 09:40:30
  * @LastEditors  : zuohy
  * @Description  : 后台管理主布局
 -->
@@ -10,7 +10,7 @@
     <el-container>
     
         <!-- 左边侧边栏 -->
-        <el-aside>
+        <el-aside :width='menuStore.menuWidth' class="transition-all  duration-100 ">
             <AdminMenu></AdminMenu>
         </el-aside>
         
@@ -43,6 +43,11 @@ import AdminFooter from './components/AdminFooter.vue';
 import AdminHeader from './components/AdminHeader.vue';
 import AdminMenu from './components/AdminMenu.vue';
 import AdminTagList from './components/AdminTagList.vue';
+
+
+import { useMenuStore } from '@/stores/menu'
+
+const menuStore = useMenuStore()
 </script>
 
 <style scoped>
