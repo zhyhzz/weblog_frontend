@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-05 16:55:41
- * @LastEditTime : 2024-08-05 17:09:24
+ * @LastEditTime : 2024-08-09 17:19:24
  * @LastEditors  : zuohy
  * @Description  : 声明菜单相关的全局状态
 */
@@ -16,4 +16,8 @@ export const useMenuStore = defineStore('menu', ()=> {
     }
 
     return { menuWidth, handleMenuWidth }
+}, 
+{
+  // 开启持久化
+  persist: true,
 })

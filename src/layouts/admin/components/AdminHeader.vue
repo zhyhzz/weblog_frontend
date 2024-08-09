@@ -1,7 +1,7 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-05 09:21:17
- * @LastEditTime : 2024-08-07 17:23:26
+ * @LastEditTime : 2024-08-09 16:58:17
  * @LastEditors  : zuohy
  * @Description  : 头部 Header
 -->
@@ -21,15 +21,22 @@
 
     <!-- 右边容器，通过 ml-auto 让其在父容器的右边 -->
     <div class="ml-auto flex">
-      		<!-- 点击刷新页面 -->
-              <el-tooltip class="box-item" effect="dark" content="刷新" placement="bottom">
-                <div class="w-[42px] h-[64px] cursor-pointer flex items-center justify-center text-gray-700 hover:bg-gray-200"
-                    @click="handleRefresh">
-                    <el-icon>
-                        <Refresh />
-                    </el-icon>
-                </div>
-            </el-tooltip>
+      <!-- 点击刷新页面 -->
+      <el-tooltip
+        class="box-item"
+        effect="dark"
+        content="刷新"
+        placement="bottom"
+      >
+        <div
+          class="w-[42px] h-[64px] cursor-pointer flex items-center justify-center text-gray-700 hover:bg-gray-200"
+          @click="handleRefresh"
+        >
+          <el-icon>
+            <Refresh />
+          </el-icon>
+        </div>
+      </el-tooltip>
       <!-- 点击全屏展示 -->
       <el-tooltip
         class="box-item"
@@ -58,7 +65,7 @@
             :size="25"
             src="https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg"
           />
-          Admin
+          {{ userStore.userInfo.username }}
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
@@ -77,6 +84,10 @@
 <script setup>
 import { useMenuStore } from "@/stores/menu";
 import { useFullscreen } from "@vueuse/core";
+import { useUserStore } from "@/stores/user";
+
+// 引入了用户 Store
+const userStore = useUserStore();
 const menuStore = useMenuStore();
 
 const handleMenuWidth = () => {
@@ -85,6 +96,5 @@ const handleMenuWidth = () => {
 
 const { isFullscreen, toggle } = useFullscreen();
 
-const handleRefresh = () => location.reload()
-
+const handleRefresh = () => location.reload();
 </script>

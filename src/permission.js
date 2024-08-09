@@ -1,12 +1,12 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-02 16:34:00
- * @LastEditTime : 2024-08-02 17:21:53
+ * @LastEditTime : 2024-08-09 10:28:46
  * @LastEditors  : zuohy
  * @Description  : 放置全局路由守卫相关代码
  */
 import router from "@/router/index";
-import { getToken } from "@/composables/auth";
+import { getToken } from "@/composables/cookie";
 import { showMessage } from "@/composables/util";
 import { showPageLoading, hidePageLoading } from "@/composables/util";
 

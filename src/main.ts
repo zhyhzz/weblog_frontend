@@ -3,9 +3,9 @@ import 'animate.css';
 import './permission'
 import 'nprogress/nprogress.css'
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import router from '@/router'
 
+import router from '@/router'
+import pinia from '@/stores'
 // 导入 Element Plus 图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
@@ -14,7 +14,6 @@ import App from './App.vue'
 
 const app = createApp(App)
 
-const pinia = createPinia()
 // 引入图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)

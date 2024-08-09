@@ -88,7 +88,10 @@ import { useRouter } from "vue-router";
 import { login } from "@/api/admin/user";
 import { reactive, ref, onMounted, onBeforeUnmount } from "vue";
 import { showMessage } from "@/composables/util";
-import { setToken } from '@/composables/auth'
+import { setToken } from "@/composables/cookie";
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
 
 const router = useRouter();
 
@@ -130,6 +133,8 @@ const onSubmit = () => {
             showMessage("登陆成功");
             //存储token到cookie中
             setToken(res.data.token);
+            // 获取用户信息，并存储到全局状态中
+            userStore.setUserInfo();
             //跳转到后台首页
             router.push("/admin/index");
           } else {

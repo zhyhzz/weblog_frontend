@@ -1,12 +1,12 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 17:23:01
- * @LastEditTime : 2024-08-02 16:07:19
+ * @LastEditTime : 2024-08-09 10:31:56
  * @LastEditors  : zuohy
  * @Description  :
  */
 import axios from "axios";
-import { getToken } from "@/composables/auth";
+import { getToken } from "@/composables/cookie";
 import { showMessage} from '@/composables/util';
 
 // 创建 Axios 实例
