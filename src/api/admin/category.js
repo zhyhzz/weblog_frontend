@@ -11,3 +11,8 @@ export function addCategory(data) {
 export function deleteCategory(id) {
     return axios.post("/admin/category/delete", {id}, {headers: {'Content-Type':'application/x-www-form-urlencoded'}});
 }
+
+// 获取分类 select 数据
+export function getCategorySelectList() {
+    return axios.get("/admin/category/select/list")
+}

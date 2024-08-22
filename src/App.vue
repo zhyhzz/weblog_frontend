@@ -9,3 +9,11 @@
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 const locale = zhCn
 </script>
+
+<style>
+html,body,#app{
+  margin: 0;
+  padding: 0;
+  height:100%;
+}
+</style>

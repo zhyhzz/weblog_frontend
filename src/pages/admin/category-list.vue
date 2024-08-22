@@ -15,7 +15,6 @@ import { reactive } from 'vue';
 
         <el-text>创建日期</el-text>
         <div class="ml-3 w-30 mr-5">
-          <!-- 日期选择组件（区间选择） -->
           <el-date-picker
             v-model="pickDate"
             type="daterange"

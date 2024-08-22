@@ -1,7 +1,7 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-05 09:16:17
- * @LastEditTime : 2024-08-09 10:59:21
+ * @LastEditTime : 2024-08-22 09:39:16
  * @LastEditors  : zuohy
  * @Description  : 后台管理主布局
 -->
@@ -26,12 +26,10 @@
 
         <!-- 主内容（根据路由动态展示不同页面） -->
         <router-view v-slot="{ Component }">
-          <Transition name="fade">
             <!-- max 指定最多缓存 10 个组件 -->
             <KeepAlive :max="10">
               <component :is="Component"></component>
             </KeepAlive>
-          </Transition>
         </router-view>
       </el-main>
 
@@ -67,13 +65,13 @@ const menuStore = useMenuStore();
 /* 内容区域过渡动画：淡入淡出效果 */
 /* 刚开始进入时 */
 .fade-enter-from {
-    /* 透明度 */
-    opacity: 0;
+  /* 透明度 */
+  opacity: 0;
 }
 
 /* 刚开始结束 */
 .fade-enter-to {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* 刚开始离开 */
@@ -88,12 +86,23 @@ const menuStore = useMenuStore();
 
 /* 离开进行中 */
 .fade-leave-active {
-    transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 /* 进入进行中 */
 .fade-enter-active {
-    transition: all 0.3s;
-    transition-delay: 0.3s;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
+}
+html,
+body,
+#app,
+.el-container {
+  /*设置内部填充为0，几个布局元素之间没有间距*/
+  padding: 0px;
+  /*外部间距也是如此设置*/
+  margin: 0px;
+  /*统一设置高度为100%*/
+  height: 100%;
 }
 </style>
