@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 17:23:01
- * @LastEditTime : 2024-08-09 10:31:56
+ * @LastEditTime : 2024-08-23 14:04:15
  * @LastEditors  : zuohy
  * @Description  :
  */
@@ -18,13 +18,11 @@ const instance = axios.create({
 //添加请求拦截器
 instance.interceptors.request.use(
   function (config) {
-    // 在发送请求之前做些什么
     const token = getToken();
     console.log("统一添加请求头中的 Token:" + token);
 
     // 当 token 不为空时
     if (token) {
-      // 添加请求头, key 为 Authorization，value 值的前缀为 'Bearer '
       config.headers["Authorization"] = "Bearer " + token;
     }
     return config;
@@ -41,12 +39,16 @@ instance.interceptors.response.use(
     return response.data;
   },
   function (error) {
+    let status = error.response.status
+    if (status == 401) {
+        removeToken()
+        location.reload()
+    }
+
     let errorMsg = error.response.data.message || '请求失败'
-    // 弹错误提示
     showMessage(errorMsg, 'error');
     return Promise.reject(error);
   }
 );
 
-// 暴露出去
 export default instance;

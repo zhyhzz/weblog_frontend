@@ -15,3 +15,8 @@ export function deleteTag(id) {
 export function searchTag(name) {
     return axios.post("/admin/tag/search", {name}, {headers: {'Content-Type':'application/x-www-form-urlencoded'}});
 }
+
+// 获取标签 select 列表数据
+export function getTagSelectList() {
+    return axios.get("/admin/tag/select/list")
+}
