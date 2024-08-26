@@ -82,7 +82,6 @@
 </template>
 
 <script setup>
-// 引入 Element Plus 中的用户、锁图标
 import { User, Lock } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { login } from "@/api/admin/user";

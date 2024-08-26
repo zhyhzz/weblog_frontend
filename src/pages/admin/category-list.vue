@@ -137,14 +137,10 @@ const searchCategoryName = ref("");
 // 日期
 const pickDate = ref("");
 
-// 当前页码，给了一个默认值 1
 const current = ref(1);
-// 总数据量，给了个默认值 0
 const total = ref(0);
-// 每页显示的数据量，给了个默认值 10
 const size = ref(10);
 const tableData = ref([]);
-// 查询条件：开始结束时间
 const startDate = reactive({});
 const endDate = reactive({});
 

@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 10:50:50
- * @LastEditTime : 2024-08-05 16:42:54
+ * @LastEditTime : 2024-08-26 10:40:33
  * @LastEditors  : zuohy
  * @Description  : 
 */
@@ -16,26 +16,24 @@ import AdminBlogSetting from '@/pages/admin/blog-setting.vue'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-// 统一在这里声明所有路由
 const routes = [
     {
-        path: '/', // 路由地址
-        component: Index, // 对应组件
-        meta: { // meta 信息
-            title: 'Weblog 首页' // 页面标题
+        path: '/', 
+        component: Index, 
+        meta: {
+            title: 'Weblog 首页' 
         }
     },
     {
-        path: '/login', // 登录页
+        path: '/login', 
         component: Login,
         meta: {
             title: 'Weblog 登录页'
         }
     },
     {
-        path: "/admin", // 后台首页
-        component: Admin, // 对应 admin.vue 布局文件
-        // 使用到 admin.vue 布局的，都需要放置在其子路由下面
+        path: "/admin", 
+        component: Admin, 
         children: [
             {
                 path: "/admin/index",

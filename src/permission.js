@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-02 16:34:00
- * @LastEditTime : 2024-08-09 10:28:46
+ * @LastEditTime : 2024-08-26 14:21:53
  * @LastEditors  : zuohy
  * @Description  : 放置全局路由守卫相关代码
  */
@@ -9,7 +9,7 @@ import router from "@/router/index";
 import { getToken } from "@/composables/cookie";
 import { showMessage } from "@/composables/util";
 import { showPageLoading, hidePageLoading } from "@/composables/util";
-
+import { useBlogSettingsStore } from '@/stores/blogsettings'
 // 全局路由前置守卫
 router.beforeEach((to, from, next) => {
   console.log("==> 全局路由前置守卫");
@@ -26,6 +26,10 @@ router.beforeEach((to, from, next) => {
   } else if (token && to.path == "/login") {
     showMessage("请勿重复登录", "warning");
     next({ path: "/admin/index" });
+  } else if (!to.path.startsWith("/admin")) {
+    let blogSettingsStore = useBlogSettingsStore();
+    blogSettingsStore.getBlogSettings();
+    next();
   } else {
     next();
   }

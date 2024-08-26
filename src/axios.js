@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 17:23:01
- * @LastEditTime : 2024-08-23 14:04:15
+ * @LastEditTime : 2024-08-26 14:19:05
  * @LastEditors  : zuohy
  * @Description  :
  */
@@ -41,7 +41,10 @@ instance.interceptors.response.use(
   function (error) {
     let status = error.response.status
     if (status == 401) {
-        removeToken()
+        // 退出登录
+        let userStore = useUserStore()
+        userStore.logout()
+        // 刷新页面
         location.reload()
     }
 
