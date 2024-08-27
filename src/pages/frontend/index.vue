@@ -12,7 +12,7 @@
             <div
               class="w-full flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
             >
-              <a href="#">
+              <a @click="goArticleDetailPage(item.id)" class="cursor-pointer">
                 <img
                   class="object-cover w-auto rounded-t-lg h-48 md:h-auto md:h-48 md:w-48 md:rounded-none md:rounded-s-lg"
                   :src="item.cover"
@@ -29,7 +29,7 @@
                     >{{ tag.name }}</span
                   >
                 </div>
-                <a href="#">
+                <a @click="goArticleDetailPage(item.id)" class="cursor-pointer">
                   <h5
                     class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
                   >
@@ -88,11 +88,16 @@
       </div>
 
       <aside class="col-span-4 md:col-span-1">
-        <UserInfoCard></UserInfoCard>
+        <div>
+          <UserInfoCard></UserInfoCard>
 
-        <!-- 分类 -->
-        <CategoryListCard></CategoryListCard>
-       <TagListCard></TagListCard>
+          <!-- 分类 -->
+          <CategoryListCard></CategoryListCard>
+          <TagListCard></TagListCard>
+        </div>
+
+        <!-- 文章目录 -->
+        <Toc></Toc>
       </aside>
     </div>
     <nav aria-label="Page navigation example" class="mt-10 flex justify-center">
@@ -174,11 +179,12 @@ import UserInfoCard from "@/layouts/frontend/components/UserInfoCard.vue";
 import Header from "@/layouts/frontend/components/Header.vue";
 import Footer from "@/layouts/frontend/components/Footer.vue";
 import { getArticlePageList } from "@/api/frontend/article";
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { initTooltips } from "flowbite";
 
-import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 onMounted(() => {
   initTooltips();
 });
@@ -207,4 +213,11 @@ function getArticles(currentNo) {
 }
 
 getArticles();
+
+// 跳转文章详情页
+const goArticleDetailPage = (articleId) => {
+  router.push("/article/" + articleId);
+};
+
+
 </script>

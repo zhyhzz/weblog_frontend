@@ -1,12 +1,12 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-26 14:15:21
- * @LastEditTime : 2024-08-26 17:18:57
+ * @LastEditTime : 2024-08-27 15:51:51
  * @LastEditors  : zuohy
  * @Description  : 
 -->
 <template>
-  <header class="sticky top-0 z-100">
+  <header class="sticky top-0 z-10">
     <nav class="bg-white border-gray-200 border-b dark:bg-gray-900">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -79,7 +79,7 @@
 
           <!-- 登录 -->
           <div
-            class="text-gray-900 ml-1 mr-1 hover:text-blue-700"
+            class="text-gray-900 ml-1 mr-1 hover:text-blue-700 cursor-pointer"
             v-if="!isLogined"
             @click="$router.push('/login')"
           >
@@ -113,7 +113,7 @@
               <li>
                 <a
                   @click="router.push('/admin/index')"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
                 >
                   <svg
                     class="inline w-3 h-3 mb-[2px] mr-1 text-gray-700 dark:text-white"
@@ -137,7 +137,7 @@
                 <a
                   data-modal-target="popup-modal"
                   data-modal-toggle="popup-modal"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   <svg
                     class="inline w-3 h-3 mb-[2px] mr-1 text-gray-700 dark:text-white"

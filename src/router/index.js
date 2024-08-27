@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 10:50:50
- * @LastEditTime : 2024-08-26 10:40:33
+ * @LastEditTime : 2024-08-27 16:23:14
  * @LastEditors  : zuohy
  * @Description  : 
 */
@@ -13,7 +13,8 @@ import AdminArticleList from '@/pages/admin/article-list.vue'
 import AdminCategoryList from '@/pages/admin/category-list.vue'
 import AdminTagList from '@/pages/admin/tag-list.vue'
 import AdminBlogSetting from '@/pages/admin/blog-setting.vue'
-
+import ArticleDetail from '@/pages/frontend/article-detail.vue'
+import NotFound from '@/pages/frontend/404.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -72,7 +73,22 @@ const routes = [
             },
         ]
         
-    }
+    },
+    {
+        path: '/article/:articleId', // 文章详情页
+        component: ArticleDetail,
+        meta: { // meta 信息
+            title: 'Weblog 详情页'
+        }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound,
+        meta: {
+            title: '404 页'
+        }
+    },
 ]
 
 // 创建路由
