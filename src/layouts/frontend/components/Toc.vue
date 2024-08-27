@@ -182,8 +182,6 @@ function handleContentScroll() {
         }
     })
 }
-// 移除滚动监听
-onBeforeUnmount(() => window.removeEventListener('scroll', handleContentScroll))
 
 function scrollToView(offsetTop) {
   window.scrollTo({ top: offsetTop, behavior: "smooth" });

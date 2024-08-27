@@ -1,13 +1,14 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 17:23:01
- * @LastEditTime : 2024-08-26 14:19:05
+ * @LastEditTime : 2024-08-27 17:30:43
  * @LastEditors  : zuohy
  * @Description  :
  */
 import axios from "axios";
 import { getToken } from "@/composables/cookie";
 import { showMessage} from '@/composables/util';
+import { useUserStore } from '@/stores/user'
 
 // 创建 Axios 实例
 const instance = axios.create({
