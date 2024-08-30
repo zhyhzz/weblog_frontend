@@ -1,12 +1,12 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-26 14:15:21
- * @LastEditTime : 2024-08-27 15:51:51
+ * @LastEditTime : 2024-08-29 09:23:01
  * @LastEditors  : zuohy
  * @Description  : 
 -->
 <template>
-  <header class="sticky top-0 z-10">
+  <header class="sticky top-0 z-10 h-70">
     <nav class="bg-white border-gray-200 border-b dark:bg-gray-900">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -235,10 +235,9 @@
               >
             </li>
             <li>
-              <a
-                href="#"
+               <a @click="router.push('/todo/index')"
                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >标签</a
+                >ToDO</a
               >
             </li>
             <li>

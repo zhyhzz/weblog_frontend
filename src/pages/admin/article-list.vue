@@ -704,7 +704,7 @@ const updateSubmit = () => {
   height: 100px;
   text-align: center;
 }
-::v-deep .md-editor-footer {
+:deep(.md-editor-footer) {
   height: 40px;
 }
 .el-select--large {

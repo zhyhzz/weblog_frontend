@@ -1,7 +1,7 @@
 /**
  * @Author       : zuohy
  * @Date         : 2024-08-01 10:50:50
- * @LastEditTime : 2024-08-27 16:23:14
+ * @LastEditTime : 2024-08-29 09:15:46
  * @LastEditors  : zuohy
  * @Description  : 
 */
@@ -15,6 +15,7 @@ import AdminTagList from '@/pages/admin/tag-list.vue'
 import AdminBlogSetting from '@/pages/admin/blog-setting.vue'
 import ArticleDetail from '@/pages/frontend/article-detail.vue'
 import NotFound from '@/pages/frontend/404.vue'
+import TodoIndex from '@/pages/frontend/todo/index.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -75,10 +76,17 @@ const routes = [
         
     },
     {
+        path: '/todo/index',
+        component: TodoIndex,
+        meta: { 
+            title: 'todo'
+        }
+    },
+    {
         path: '/article/:articleId', // 文章详情页
         component: ArticleDetail,
-        meta: { // meta 信息
-            title: 'Weblog 详情页'
+        meta: { 
+            title: '文章详情页'
         }
     },
     {

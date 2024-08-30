@@ -456,7 +456,7 @@ img:focus {
   font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
 }
 /* code 样式 */
-::v-deep(.article-content code:not(pre code)) {
+:deep(.article-content code:not(pre code)) {
   padding: 2px 4px;
   margin: 0 2px;
   font-size: 95% !important;
@@ -467,15 +467,15 @@ img:focus {
 }
 
 /* pre code 样式 */
-::v-deep(code) {
+:deep(code) {
   font-size: 98%;
 }
 
-::v-deep(pre) {
+:deep(pre) {
   margin-bottom: 20px;
 }
 
-::v-deep(pre code.hljs) {
+:deep(pre code.hljs) {
   padding-top: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -483,7 +483,7 @@ img:focus {
   border-radius: 6px;
 }
 
-::v-deep(pre:before) {
+:deep(pre:before) {
   background: #fc625d;
   border-radius: 50%;
   box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;

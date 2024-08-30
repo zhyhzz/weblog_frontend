@@ -189,7 +189,7 @@ function scrollToView(offsetTop) {
 </script>
 
 <style scoped>
-::v-deep(.toc-wrapper) {
+:deep(.toc-wrapper) {
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -199,7 +199,7 @@ function scrollToView(offsetTop) {
   scroll-behavior: smooth;
 }
 
-::v-deep(.toc:before) {
+:deep(.toc:before) {
   content: " ";
   position: absolute;
   top: 0;
