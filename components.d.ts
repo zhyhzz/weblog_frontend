@@ -49,6 +49,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TaskContent: typeof import('./src/components/TaskContent.vue')['default']
+    TodoContent: typeof import('./src/components/TodoContent.vue')['default']
     TodoItem: typeof import('./src/components/TodoItem.vue')['default']
   }
   export interface ComponentCustomProperties {

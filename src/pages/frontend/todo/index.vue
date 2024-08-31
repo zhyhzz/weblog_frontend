@@ -1,7 +1,7 @@
 <!--
  * @Author       : zuohy
  * @Date         : 2024-08-29 09:04:36
- * @LastEditTime : 2024-08-29 17:43:40
+ * @LastEditTime : 2024-08-30 09:31:23
  * @LastEditors  : zuohy
  * @Description  : 
 -->
@@ -73,39 +73,91 @@
           <div
             class="flex items-center justify-center h-50 rounded bg-gray-50 dark:bg-gray-800"
           >
-            <TodoItem  title="task1"
-            @update:checkboxes="onCheckboxesUpdate"
-            :checkboxes="checkboxes"></TodoItem>
+            <TodoItem
+              title="task1"
+              @update:checkboxes="onCheckboxesUpdate"
+              :checkboxes="checkboxes"
+            ></TodoItem>
           </div>
           <div
             class="flex items-center justify-center h-50 rounded bg-gray-50 dark:bg-gray-800"
           >
-           
-            <TaskContent></TaskContent>
+            <TodoContent>
+              <template v-slot>
+                <form @submit.prevent="handleSubmit">
+                  <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                      <label
+                        for="name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Product Name</label
+                      >
+                      <input
+                        v-model="formData.name"
+                        type="text"
+                        id="name"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        required
+                      />
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                      <label
+                        for="price"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Price</label
+                      >
+                      <input
+                        v-model="formData.price"
+                        type="number"
+                        id="price"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        required
+                      />
+                    </div>
+                    <!-- Add other fields as needed -->
+                  </div>
+                  <!-- <button
+                    type="submit"
+                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Save Changes
+                  </button> -->
+                </form>
+              </template>
+            </TodoContent>
           </div>
         </div>
       </div>
     </div>
   </main>
-
 </template>
 
 <script setup>
 import Header from "@/layouts/frontend/components/Header.vue";
 import Footer from "@/layouts/frontend/components/Footer.vue";
 import TodoItem from "@/components/TodoItem.vue";
-import TaskContent from "@/components/TaskContent.vue"
-import { ref } from 'vue';
+import TodoContent from "@/components/TodoContent.vue";
+import { ref } from "vue";
 
 const checkboxes = ref([
-  { id: 'vue', label: 'Vue JS', checked: false },
-  { id: 'react', label: 'React', checked: false },
-  { id: 'angular', label: 'Angular', checked: false },
-  { id: 'laravel', label: 'Laravel', checked: false }
+  { id: "vue", label: "Vue JS", checked: false },
+  { id: "react", label: "React", checked: false },
+  { id: "angular", label: "Angular", checked: false },
+  { id: "laravel", label: "Laravel", checked: false },
 ]);
 
 function onCheckboxesUpdate(updatedCheckboxes) {
-  console.log("updatedCheckboxes", updatedCheckboxes)
+  console.log("updatedCheckboxes", updatedCheckboxes);
   checkboxes.value = updatedCheckboxes;
+}
+
+const formData = ref({
+  name: "",
+  price: "",
+});
+
+function handleSubmit() {
+  console.log("Form submitted", formData.value);
+  // Handle form submission logic (create, update, etc.)
 }
 </script>
